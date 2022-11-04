@@ -1,0 +1,118 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-77.032, 38.913]
+        },
+        "properties": {
+          "title": "Mapbox",
+          "type": "office",
+          "type_full": "Office",
+          "description": "Washington, D.C."
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-122.414, 37.776]
+        },
+        "properties": {
+          "title": "Mapbox",
+          "type": "office",
+          "type_full": "Office",
+          "description": "San Francisco, California"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-122.3321, 47.6]
+        },
+        "properties": {
+          "title": "Mapbox",
+          "type": "hq",
+          "type_full": "Headquarter",
+          "description": "Seattle, Washington"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-97, 30]
+        },
+        "properties": {
+          "title": "Mapbox",
+          "type": "office",
+          "type_full": "Office",
+          "description": "Austin, Texas"
+        }
+      },          
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-82, 40]
+        },
+        "properties": {
+          "title": "Mapbox",
+          "type": "data",
+          "type_full": "Data Center",
+          "description": "Ohio"}
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-120, 43]
+        },
+        "properties": {
+          "title": "Mapbox",
+          "type": "data",
+          "type_full": "Data Center",
+          "description": "Oregon"}
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-120, 38]
+        },
+        "properties": {
+          "title": "Mapbox",
+          "type": "data",
+          "type_full": "Data Center",
+          "description": "North California"}
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-77, 38]
+        },
+        "properties": {
+          "title": "Mapbox",
+          "type": "data",
+          "type_full": "Data Center",
+          "description": "North Virginia"}
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-95, 41]
+        },
+        "properties": {
+          "title": "Mapbox",
+          "type": "storage",
+          "type_full": "Warehouse",
+          "description": "Omaha, Nebraska"
+        }
+      }
+    ]
+  }
