@@ -24,23 +24,24 @@
         bottom: 0;
         width: 100%;
       }
-      #hq {
-        background-image: url('https://cdn-icons-png.flaticon.com/512/622/622893.png');
-      }
-      #data {
-        background-image: url('https://cdn-icons-png.flaticon.com/512/2906/2906274.png');
-      }
-      #storage {
-        background-image: url('https://cdn-icons-png.flaticon.com/512/1350/1350237.png');
-      }
-      #office {
-        background-image: url('https://cdn-icons-png.flaticon.com/512/1584/1584961.png');
-      }
       .marker {
         background-size: cover;
         width: 40px;
         height: 40px;
         cursor: pointer;
+        border: 1px dotted white;
+      }
+      .hq {
+        background-image: url('https://cdn-icons-png.flaticon.com/512/622/622893.png');
+      }
+      .data {
+        background-image: url('https://cdn-icons-png.flaticon.com/512/2906/2906274.png');
+      }
+      .storage {
+        background-image: url('https://cdn-icons-png.flaticon.com/512/1350/1350237.png');
+      }
+      .office {
+        background-image: url('https://cdn-icons-png.flaticon.com/512/1584/1584961.png');
       }
       .mapboxgl-popup {
         max-width: 50px;
@@ -194,7 +195,7 @@
         const el = document.createElement('div');
         el.className = 'marker';
         let currentFeatureType = geojson.features[counter].properties.type;
-        el.id = currentFeatureType
+        el.className += ' ' + currentFeatureType;
 
         // make a marker for each feature and add it to the map
         new mapboxgl.Marker(el)
