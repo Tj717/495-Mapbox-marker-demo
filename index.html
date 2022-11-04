@@ -184,18 +184,20 @@
       });
 
       // add markers to map
+      let counter = 0;
       for (const feature of geojson.features) {
         // create a HTML element for each feature
         const el = document.createElement('div');
         el.className = 'marker';
-        if (geojson.features[counter].properties.type == 'data') {
-            el.id = 'data'
-        } else if (geojson.features[counter].properties.type == 'storage') {
+        let currentFeatureType = geojson.features[counter].properties.type;
+        if (currentFeatureType == 'data') {
+            el.id = 'data';
+        } else if (currentFeatureType == 'storage') {
             el.id = 'storage';
-        } else if (geojson.features[counter].properties.type == 'office') {
+        } else if (currentFeatureType == 'office') {
           el.id = 'office';
         } else { 
-            el.id = 'hq';
+          el.id = 'hq';
         }
 
         // make a marker for each feature and add it to the map
@@ -208,6 +210,7 @@
               )
           )
           .addTo(map);
+        counter++;
       }
     </script>
   </body>
