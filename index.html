@@ -24,24 +24,26 @@
         bottom: 0;
         width: 100%;
       }
-      .marker1 {
-        background-image: url('https://cdn-icons-png.flaticon.com/512/7444/7444292.png');
-        background-size: cover;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        cursor: pointer;
+      #hq {
+        background-image: url('https://cdn-icons-png.flaticon.com/512/622/622893.png');
       }
-      .marker2 {
-        background-image: url('https://cdn-icons-png.flaticon.com/512/2422/2422792.png');
+      #data {
+        background-image: url('https://cdn-icons-png.flaticon.com/512/2906/2906274.png');
+      }
+      #storage {
+        background-image: url('https://cdn-icons-png.flaticon.com/512/1350/1350237.png');
+      }
+      #office {
+        background-image: url('https://cdn-icons-png.flaticon.com/512/1584/1584961.png');
+      }
+      .marker {
         background-size: cover;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+        width: 40px;
+        height: 40px;
         cursor: pointer;
       }
       .mapboxgl-popup {
-        max-width: 200px;
+        max-width: 50px;
       }
       .mapboxgl-popup-content {
         text-align: center;
@@ -66,7 +68,8 @@
             },
             'properties': {
               'title': 'Mapbox',
-              'type': '2',
+              'type': 'office',
+              'type_full': 'Office',
               'description': 'Washington, D.C.'
             }
           },
@@ -78,7 +81,8 @@
             },
             'properties': {
               'title': 'Mapbox',
-              'type': '2',
+              'type': 'office',
+              'type_full': 'Office',
               'description': 'San Francisco, California'
             }
           },
@@ -86,11 +90,12 @@
             'type': 'Feature',
             'geometry': {
               'type': 'Point',
-              'coordinates': [-122, 46]
+              'coordinates': [-122.3321, 47.6]
             },
             'properties': {
               'title': 'Mapbox',
-              'type': '1',
+              'type': 'hq',
+              'type_full': 'Headquarter',
               'description': 'Seattle, Washington'
             }
           },
@@ -102,9 +107,58 @@
             },
             'properties': {
               'title': 'Mapbox',
-              'type': '1',
+              'type': 'office',
+              'type_full': 'Office',
               'description': 'Austin, Texas'
             }
+          },          
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [-82, 40]
+            },
+            'properties': {
+              'title': 'Mapbox',
+              'type': 'data',
+              'type_full': 'Data Center',
+              'description': 'Ohio'}
+          },
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [-120, 43]
+            },
+            'properties': {
+              'title': 'Mapbox',
+              'type': 'data',
+              'type_full': 'Data Center',
+              'description': 'Oregon'}
+          },
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [-120, 38]
+            },
+            'properties': {
+              'title': 'Mapbox',
+              'type': 'data',
+              'type_full': 'Data Center',
+              'description': 'North California'}
+          },
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [-77, 38]
+            },
+            'properties': {
+              'title': 'Mapbox',
+              'type': 'data',
+              'type_full': 'Data Center',
+              'description': 'North Virginia'}
           },
           {
             'type': 'Feature',
@@ -114,8 +168,9 @@
             },
             'properties': {
               'title': 'Mapbox',
-              'type': '1',
-              'description': 'omaha, Nebraska'
+              'type': 'storage',
+              'type_full': 'Warehouse',
+              'description': 'Omaha, Nebraska'
             }
           }
         ]
@@ -123,21 +178,24 @@
 
       const map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/light-v10',
+        style: 'mapbox://styles/mapbox/dark-v10',
         center: [-96, 37.8],
         zoom: 3
       });
 
       // add markers to map
-      let counter = 0;
       for (const feature of geojson.features) {
         // create a HTML element for each feature
         const el = document.createElement('div');
-
-        if (geojson.features[counter].properties.type == '1') {
-            el.className = 'marker1';
-        } else {
-            el.className = 'marker2';
+        el.className = 'marker';
+        if (geojson.features[counter].properties.type == 'data') {
+            el.id = 'data'
+        } else if (geojson.features[counter].properties.type == 'storage') {
+            el.id = 'storage';
+        } else if (geojson.features[counter].properties.type == 'office') {
+          el.id = 'office';
+        } else { 
+            el.id = 'hq';
         }
 
         // make a marker for each feature and add it to the map
@@ -146,11 +204,10 @@
           .setPopup(
             new mapboxgl.Popup({ offset: 25 }) // add popups
               .setHTML(
-                `<h3>${geojson.features[counter].properties.type}</h3><p>${feature.properties.description}</p>`
+                `<h3>${feature.properties.type_full}</h3><p>${feature.properties.description}</p>`
               )
           )
           .addTo(map);
-          counter++;
       }
     </script>
   </body>
